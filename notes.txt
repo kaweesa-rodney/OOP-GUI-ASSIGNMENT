@@ -1,0 +1,4 @@
+ADDED FEATURES:
+
+Captures feedback is stored in a sqlite database
+Captured feedback can be exported into csv format
