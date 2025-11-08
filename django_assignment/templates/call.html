@@ -1,0 +1,85 @@
+{% extends "base_sidebar.html" %}
+
+{% block title %}Video Chat{% endblock %}
+
+{% block content %}
+<div class="call-container">
+
+  <!-- Login Section -->
+  <div id="userName" class="call-card">
+    <div class="text-center">
+      <input type="hidden" class="form-control form-control-lg mb-3" id="userNameInput"
+            value="{{ request.user.username }}">
+      <button onclick="login()" class="btn btn-primary btn-lg">Access Video Chat Realm</button>
+    </div>
+  </div>
+
+  <!-- User Info Section -->
+  <div id="userInfo" class="text-center mb-4">
+    <h1 class="display-6">Hello, <span id="nameHere"></span></h1>
+  </div>
+
+  <!-- Call Section -->
+  <div id="call" class="call-card mb-4">
+    <input type="text" class="form-control form-control-lg mb-3" id="callName" placeholder="Whom to call?">
+    <div class="text-center">
+      <button class="btn btn-success btn-lg" onclick="call()">Call</button>
+    </div>
+  </div>
+
+  <!-- Answer Section -->
+  <div id="answer" class="call-card text-center">
+    <h2 class="mb-4">Incoming Call</h2>
+    <img id="profileImageA" class="profile-image mb-3" src="/static/images/dj-profile.jpg" alt="Profile">
+    <h2 class="mb-4"><span id="callerName"></span></h2>
+    <button class="btn btn-success btn-lg mb-3" onclick="answer()">Answer</button>
+  </div>
+
+  <!-- Calling Section -->
+  <div id="calling" class="call-card text-center">
+    <h2 class="mb-4">Calling</h2>
+    <img id="profileImageCA" class="profile-image mb-3" src="/static/images/dj-profile.jpg" alt="Profile">
+    <h3><span id="otherUserNameCA"></span></h3>
+  </div>
+
+  <!-- In Call Section -->
+  <div id="inCall" class="call-card text-center">
+    <h3>On Call With</h3>
+    <h2><span id="otherUserNameC"></span></h2>
+  </div>
+
+  <!-- Videos Section -->
+  <div id="videos" class="video-container">
+    <video id="localVideo" autoplay muted playsinline></video>
+    <div id="remoteVideoDiv" class="text-center">
+      <video id="remoteVideo" autoplay playsinline></video>
+    </div>
+  </div>
+
+</div>
+{% endblock %}
+
+{% block include_js %}
+<script src="/static/js/call.js"></script>
+<script>
+    // Hide all sections initially
+    document.getElementById("call").style.display = "none";
+    document.getElementById("userInfo").style.display = "none";
+    document.getElementById("answer").style.display = "none";
+    document.getElementById("inCall").style.display = "none";
+    document.getElementById("calling").style.display = "none";
+    document.getElementById("videos").style.display = "none";
+
+    function login() {
+    let userName = document.getElementById("userNameInput").value;
+    myName = userName;
+
+    document.getElementById("userName").style.display = "none";
+    document.getElementById("call").style.display = "block";
+    document.getElementById("nameHere").innerHTML = userName;
+    document.getElementById("userInfo").style.display = "block";
+
+    connectSocket();
+    }
+</script>
+{% endblock %}

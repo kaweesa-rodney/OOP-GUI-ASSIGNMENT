@@ -1,0 +1,46 @@
+{% extends "base_sidebar.html" %}
+
+{% block content %}
+
+<div class="container-fluid px-4 py-5">
+    <div class="text-center mb-5">
+      <h1 class="fw-bold text-primary">Welcome to ChatApp</h1>
+      <p class="text-muted">A simple, fast, and real-time way to stay connected.</p>
+      <div id="txt">
+        <iframe src="http://free.timeanddate.com/clock/i69pebua/n115/szw160/szh160/hbw0/hfc000/cf100/hgr0/fav0/fiv0/mqcfff/mql15/mqw4/mqd94/mhcfff/mhl15/mhw4/mhd94/mmv0/hhcbbb/hmcddd/hsceee" frameborder="0" width="160" height="160"></iframe>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card shadow-sm border-0 h-100">
+          <div class="card-body text-center">
+            <i class="fa-solid fa-comments fs-1 text-primary mb-3"></i>
+            <h5 class="fw-bold">Chat Instantly</h5>
+            <p class="text-muted">Start conversations with anyone, anytime, anywhere.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card shadow-sm border-0 h-100">
+          <div class="card-body text-center">
+            <i class="fa-solid fa-users fs-1 text-primary mb-3"></i>
+            <h5 class="fw-bold">Connect Easily</h5>
+            <p class="text-muted">Build your friends list and join lively group discussions.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card shadow-sm border-0 h-100">
+          <div class="card-body text-center">
+            <i class="fa-solid fa-lock fs-1 text-primary mb-3"></i>
+            <h5 class="fw-bold">Stay Secure</h5>
+            <p class="text-muted">Enjoy end-to-end encryption and total privacy.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

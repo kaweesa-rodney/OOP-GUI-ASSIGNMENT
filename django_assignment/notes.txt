@@ -1,0 +1,12 @@
+ADDED FEATURES
+
+USER AUTHENTICATION
+Applications able to:
+1. add users / account creation
+2. disable users
+3. change user passwords
+4. search for users
+5. application auto logs out due to screen inactivity of 1 minute
+
+Only users with superuser user level are able to create and manage users
+All app features can also be accessed after login

@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block title %}Welcome | Chat App{% endblock %}
+
+{% block body %}
+<div class="d-flex" id="wrapper">
+
+  <!-- Sidebar -->
+  <div class="border-end bg-primary text-white" id="sidebar-wrapper">
+    <div class="sidebar-heading text-center py-4 fw-bold fs-4 border-bottom">
+      <i class="fa-solid fa-comments me-2"></i> ChatApp
+    </div>
+    <div class="list-group list-group-flush my-3">
+      <a href="{% url 'users:dash' %}" class="list-group-item list-group-item-action bg-primary text-white border-0">
+        <i class="fa-solid fa-house me-2"></i> Home
+      </a>
+      <a href="{% url 'chat:join_chatroom' %}" class="list-group-item list-group-item-action bg-primary text-white border-0">
+        <i class="fa-solid fa-message me-2"></i> Chat
+      </a>
+      <a href="{% url 'call:index' %}" class="list-group-item list-group-item-action bg-primary text-white border-0">
+        <i class="fa-solid fa-message me-2"></i> Video Chat
+      </a>
+
+      {% if request.user.is_superuser %}
+        <a href="{% url 'users:users' %}" class="list-group-item list-group-item-action bg-primary text-white border-0">
+          <i class="fa-solid fa-user-friends me-2"></i> Users
+        </a>
+      {% endif %}
+      
+      <a href="{% url 'users:logout_view' %}" class="list-group-item list-group-item-action bg-primary text-white border-0 mt-3">
+        <i class="fa-solid fa-right-from-bracket me-2"></i> Logout
+      </a>
+    </div>
+  </div>
+  <!-- /#sidebar-wrapper -->
+
+  <!-- Page Content -->
+  <div id="page-content-wrapper" class="w-100">
+
+    <!-- Top Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm px-4">
+      <button class="btn btn-primary" id="sidebarToggle"><i class="fa-solid fa-bars"></i></button>
+      <a class="navbar-brand ms-3 fw-bold text-primary" href="#">Dashboard</a>
+
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+              <i class="fa-solid fa-user-circle me-1"></i> Hi, {{ request.user.username }}
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end shadow">
+              <li><a class="dropdown-item" href="{% url 'users:change_password' %}">Change Password</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item text-danger" href="#">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Main Section -->
+    <div class="container mt-5">
+    {% block content %}
+    {% endblock %}
+    </div>
+
+  </div>
+  <!-- /#page-content-wrapper -->
+</div>
+{% endblock %}
+

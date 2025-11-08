@@ -1,0 +1,28 @@
+{% extends "base_sidebar.html" %}
+
+{% block title %}Chat Rooms{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h5 class="card-header">Join Chat-Room<p></p></h5>
+    <div class="card-body">
+        <form method="post", action="{% url 'chat:join_chatroom' %}">
+            {% csrf_token %}
+            
+            <div class="form-group">
+              <label for="room_name">Room Name</label>
+              <input type="text" id="room_name" name="room_name" required>
+            </div>
+    
+            <!--<div class="form-group">
+              <label for="username">Your Name</label>
+              <input type="text" id="username" name="username" required>
+            </div>-->
+    
+            <div class="form-submit">
+              <button type="submit" class="join-button">Join Room</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
