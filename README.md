@@ -1,4 +1,4 @@
-# OOP-GUI-ASSIGNMENT---S25M19030
+# OOP-GUI-ASSIGNMENT---S25M19/030
 Creation of web conference django app and tkinter desktop app
 
 # Django Web App + Tkinter Desktop App
